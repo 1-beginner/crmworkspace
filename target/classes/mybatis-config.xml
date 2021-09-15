@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--日志-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <typeAliases>
+        <package name="com.bjpowernode.crm.settings.domain"/>
+        <package name="com.bjpowernode.crm.workbench.domain"/>
+    </typeAliases>
+
+    <environments default="mydev">
+        <environment id="mydev">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <!--连接数据库的驱动-->
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <!--连接数据库的字符串-->
+                <property name="url" value="jdbc:mysql://localhost:3306/crm"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+
+    </environments>
+
+    <!--sql语句映射位置-->
+    <mappers>
+        <!--可选mapper标签
+            package标签包名一次性-->
+        <package name="com.bjpowernode.crm.settings.dao"/>
+        <package name="com.bjpowernode.crm.workbench.dao"/>
+    </mappers>
+</configuration>
